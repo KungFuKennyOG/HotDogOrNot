@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from fastai.basics import *
 from fastai.vision.all import *
 from flask_cors import CORS, cross_origin
@@ -9,7 +9,8 @@ learn = load_learner('trained_model.pkl')
 
 
 def predict_image(img):
-    prediction = learn.predict(PILImage(img))
+    img = PILImage(img)
+    prediction = learn.predict(img)
     if prediction[0] == 'hot_dog':
         return 'hot dog'
     return 'not hot dog'
