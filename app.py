@@ -4,7 +4,7 @@ from fastai.vision.all import *
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-
+CORS(app, support_credentials=True)
 learn = load_learner('trained_model.pkl')
 
 
