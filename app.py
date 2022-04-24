@@ -12,8 +12,8 @@ def predict_image(img):
     img = PILImage.create(img)
     prediction = learn.predict(img)
     if prediction[0] == 'hot_dog':
-        return 'hot dog'
-    return 'not hot dog'
+        return 'a hot dog'
+    return 'not a hot dog'
 
 
 @app.route('/predict', methods=['POST'])
