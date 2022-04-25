@@ -9,8 +9,7 @@ learn = load_learner('trained_model.pkl')
 
 
 def predict_image(img):
-    img = PILImage.create(img)
-    prediction = learn.predict(img)
+    prediction = learn.predict(PILImage.create(img))
     if prediction[0] == 'hot_dog':
         return 'a hot dog'
     return 'not a hot dog'
